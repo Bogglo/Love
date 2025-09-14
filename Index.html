@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Calculator ❤️ — Calculate your love</title>
+  <meta name="description" content="A fun and romantic Love Calculator web app that calculates love score based on names.">
+  <meta name="keywords" content="Love Calculator, love score, What is love ❤?, Love quotes, What is love in a relationship, Love romance, Best definition of love, Love you, I love you, love calculator, love calculator name, love calculator prank, love calculator by name and date of birth, calculated love meaning, calculator love test, calculator love test games, love test, love tester, love test quiz, love tester online, love test name, love test game, love test app, love test calculator, love tester free romantic app, name match, HTML CSS JavaScript">
+  <meta name="author" content="All Bayjid Bishwash (Bogglo)">
+  <meta property="og:title" content="Love Calculator ❤️ — Calculate your love">
+  <meta property="og:description" content="Playful web app to calculate love score based on names.">
+  <meta property="og:image" content="images/screenshot.jpg">
+  <meta property="og:url" content="https://bogglo.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <style>
+    html {
+      box-sizing: border-box;
+      font-size: 16px;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+      background: linear-gradient(120deg, #ff758c, #ff7eb3);
+      min-height: 100vh;
+      width: 100vw;
+      position: relative;
+    }
+    h1 {
+      margin-top: 24px;
+      font-size: 2em;
+      letter-spacing: 1px;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.17);
+      padding: 24px 12px;
+      border-radius: 15px;
+      max-width: 400px;
+      margin: 32px auto 0 auto;
+      box-shadow: 0 0 20px rgba(255,255,255,0.18);
+      position: relative;
+      z-index: 2;
+      width: 98vw;
+    }
+    label {
+      display: block;
+      margin-bottom: 4px;
+      text-align: left;
+      margin-left: 5%;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      font-size: 1rem;
+    }
+    input {
+      width: 90%;
+      padding: 13px;
+      margin: 8px 0 16px 0;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      outline: none;
+      color: #222;
+      background: rgba(255,255,255,0.92);
+      box-sizing: border-box;
+    }
+    input:focus {
+      background: #fff;
+      box-shadow: 0 0 0 2px #ff758c88;
+    }
+    button {
+      padding: 13px 20px;
+      margin-top: 10px;
+      font-size: 19px;
+      border: none;
+      background: #b10030;
+      color: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 90%;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      letter-spacing: 0.5px;
+    }
+    button:hover, button:focus {
+      background: #7a0020;
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.4em;
+      font-weight: bold;
+      min-height: 40px;
+      transition: transform 0.3s ease-in-out;
+      color: #fff;
+      text-shadow: 0 1px 4px #b10030a0;
+      word-break: break-word;
+    }
+    .result.animate {
+      transform: scale(1.2);
+    }
+    .heart {
+      font-size: 40px;
+      animation: heartbeat 1s infinite;
+      filter: drop-shadow(0 1px 4px #b1003080);
+      margin-top: 14px;
+    }
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.2); }
+      50% { transform: scale(1); }
+      75% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    .floating-heart {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.8);
+      animation: floatUp linear infinite;
+      font-size: 20px;
+      z-index: 1;
+      user-select: none;
+      pointer-events: none;
+      left: 0;
+      top: 0;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+    /* Mobile Responsive Styles */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5em;
+      }
+      .container {
+        max-width: 98vw;
+        padding: 18px 3vw;
+        margin-top: 20px;
+      }
+      input, button {
+        font-size: 1.1em;
+        padding: 10px;
+      }
+      .heart {
+        font-size: 32px;
+      }
+      .result {
+        font-size: 1.1em;
+      }
+      label {
+        font-size: 0.98em;
+      }
+    }
+    @media (max-width: 350px) {
+      .container {
+        padding: 8px 2vw;
+      }
+      input, button {
+        font-size: 1em;
+        padding: 8px;
+      }
+    }
+    /* Hide footer on mobile, since removed */
+    .footer-link {
+      display: none !important;
+    }
+    /* Accessibility */
+    button:focus, a:focus {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>❤️ Love Calculator ❤️</h1>
+  <div class="container">
+    <label for="name1">Your Name:</label>
+    <input type="text" id="name1" placeholder="Enter your name" autocomplete="off" aria-label="Your name">
+    <label for="name2">Partner's Name:</label>
+    <input type="text" id="name2" placeholder="Enter your partner's name" autocomplete="off" aria-label="Partner's name">
+    <button onclick="calculateLove()" id="calculateBtn" aria-label="Calculate love score">Calculate</button>
+    <div class="result" id="result" aria-live="polite"></div>
+    <div class="heart" aria-hidden="true">💖</div>
+  </div>
+
+  <script>
+    // Floating hearts background
+    function createHearts() {
+      const heart = document.createElement('div');
+      heart.classList.add('floating-heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 3) + 's';
+      heart.innerHTML = '❤️';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHearts, 300);
+
+    // Love calculation logic
+    function nameToNumber(str) {
+      let sum = 0;
+      for (let i = 0; i < str.length; i++) {
+        sum += str.charCodeAt(i);
+      }
+      return sum;
+    }
+
+    function calculateLove() {
+      const name1 = document.getElementById("name1").value.trim().toLowerCase();
+      const name2 = document.getElementById("name2").value.trim().toLowerCase();
+      const result = document.getElementById("result");
+
+      if (name1 === "" || name2 === "") {
+        result.innerHTML = "Please enter both names! 😄";
+        return;
+      }
+
+      let fixedValue = (nameToNumber(name1 + name2) % 101);
+      let currentValue = 0;
+
+      let interval = setInterval(() => {
+        currentValue++;
+        result.classList.add("animate");
+        result.innerHTML = `💞 Love Score: ${currentValue}%`;
+        setTimeout(() => result.classList.remove("animate"), 200);
+
+        if (currentValue >= fixedValue) {
+          clearInterval(interval);
+          result.innerHTML = `💞 Love Score between ${name1} & ${name2} is ${fixedValue}% ❤️`;
+        }
+      }, 30);
+    }
+
+    // Keyboard accessibility: Enter key triggers calculation
+    document.getElementById("name2").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("calculateBtn").click();
+      }
+    });
+  </script>
+
+</body>
+</html>
